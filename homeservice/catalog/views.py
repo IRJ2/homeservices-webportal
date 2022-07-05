@@ -20,3 +20,13 @@ def client_login(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'client_login.html', context=context)
+
+def worker_login(request):
+    """View function for home page of site."""
+
+    context = {
+
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'worker_login.html', context=context)
