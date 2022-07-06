@@ -1,4 +1,5 @@
 {% extends "base_generic.html" %} {% block content %}
+
     <section class="a1u[130px]">
       <div
         class="wow fadeInUp ac a2w a2x a2y a2z a2A lg:a1N[120px]"
@@ -83,23 +84,7 @@
               ipsum primis in faucibus. In sit amet dui sapien. Suspendisse
               fermentum nibh a ligula tristique, id vulputate mi efficitur.
             </p>
-            <p class="a2J aF aG">
-              Maecenas porta nisi eget urna cursus lobortis. Cras volutpat elit
-              nec quam dignissim semper. Quisque quis fringilla tellus.
-              Phasellus mollis porta urna, eu convallis risus tincidunt
-              facilisis. Morbi sit amet nunc tristique, aliquet lectus
-              vestibulum, elementum enim. In sit amet accumsan lectus, ut semper
-              ex. Duis ultrices rutrum odio bibendum aliquam. Nullam posuere
-              tristique magna euismod convallis. Aenean dictum neque in ante
-              cursus mollis in tempus elit semper sed.
-            </p>
-          </div>
-          <div class="wow fadeInUp a1B a2J ae[1150px]" data-wow-delay=".2s">
-            <img
-              src="./images/blog/blog-details-2.jpg"
-              alt="blog-details"
-              class="a4 aS"
-            />
+            
           </div>
           <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
             <div class="ac a1B ae[850px] a2K a1y">
@@ -125,19 +110,6 @@
               </p>
               <p class="az aE aF aG">“Muhammad Basheer”</p>
             </div>
-            <p class="a1X aF aG">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum quis ligula in libero semper ornare. Donec in dictum
-              justo, ac sollicitudin ex. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. In sit amet dui sapien. Suspendisse
-              fermentum nibh a ligula tristique, id vulputate mi efficitur.
-            </p>
-            <p class="a1U aF aG">
-              Maecenas porta nisi eget urna cursus lobortis. Cras volutpat elit
-              nec quam dignissim semper. Quisque quis fringilla tellus.
-              Phasellus mollis porta urna, eu convallis risus tincidunt
-              facilisis. Morbi sit amet nunc.
-            </p>
           </div>
           <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
             <h3 class="a2O aE a1J a1K a1t dark:aI md:a1F[40px]">
@@ -151,7 +123,7 @@
                       type="text"
                       name="name"
                       id="name"
-                      placeholder=" Name"
+                      placeholder=" Title"
                       class="a4 a1x at a2e aF a1t a2P a27 focus:a28 dark:a1z[#2C3443] dark:aI dark:focus:a2v"
                     />
                   </div>
@@ -178,6 +150,32 @@
                 </div>
               </div>
             </form>
+          </div>
+          <br>
+          <br>
+          {% comment %} Starting code of review block {% endcomment %}
+          <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
+            <h3 class="a2O aE a1J a1K a1t dark:aI md:a1F[40px]">
+              Top reviews
+            </h3>
+            {% comment %} a2F a5 a6 a9 am {% endcomment %}
+            <div class="a4 a1v">
+              <div class="a5 a9 a7">
+                <div class="a2G a2o a2p a1j">
+                  {% load static %}
+                  <img src="{% static 'images/worker-demo.jpg' %}" alt="author" class="a4" />
+                </div>
+                <p class="aE aF aG dark:aI">P C Thomas</p>
+              </div>
+            </div>
+            <br>
+            <p class="a1X aF aG">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum quis ligula in libero semper ornare. Donec in dictum
+              justo, ac sollicitudin ex. Interdum et malesuada fames ac ante
+              ipsum primis in faucibus. In sit amet dui sapien. Suspendisse
+              fermentum nibh a ligula tristique, id vulputate mi efficitur.
+            </p>
           </div>
         </div>
       </div>

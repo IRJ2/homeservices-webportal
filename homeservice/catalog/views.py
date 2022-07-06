@@ -13,7 +13,7 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 def clientLogin(request):
-    """View function for login page of site."""
+    """View function of login page for customers."""
 
     context = {
 
@@ -23,7 +23,7 @@ def clientLogin(request):
     return render(request, 'client_login.html', context=context)
 
 def workerLogin(request):
-    """View function for login page of site."""
+    """View function of login page for workers."""
 
     context = {
 
@@ -33,7 +33,7 @@ def workerLogin(request):
     return render(request, 'worker_login.html', context=context)
 
 def expertsList(request):
-    """View function list view of service experts"""
+    """View function of list view of service experts"""
 
     context = {
 
@@ -43,7 +43,7 @@ def expertsList(request):
     return render(request, 'experts_list.html', context=context)
 
 def expertsDetail(request):
-    """View function detail view of service experts"""
+    """View function for detail view of service experts"""
 
     context = {
 
