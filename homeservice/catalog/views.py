@@ -32,6 +32,16 @@ def clientSignup(request):
     # Render the HTML template client_signup.html with the data in the context variable
     return render(request, 'client_signup.html', context=context)
 
+def clientProfile(request):
+    """View function of signup page for customers."""
+
+    context = {
+
+    }
+
+    # Render the HTML template client_profile.html with the data in the context variable
+    return render(request, 'client_profile.html', context=context)
+
 def expertLogin(request):
     """View function of login page for experts."""
 

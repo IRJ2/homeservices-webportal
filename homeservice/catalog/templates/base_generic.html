@@ -20,7 +20,7 @@
     <header class="header a1 a2 a3 a4">
       <div class="a5 a4 a6 a7 lg:a8 lg:a9 lg:a7 xl:aa 2xl:ab">
         <div class="ac ad[99] ae[250px] lg:a4 xl:ae[350px]">
-          <a href="index.html" class="af">
+          <a href="{% url 'home'%}" class="af">
             <img
               src="{% static 'images/logo-dark.png'%}"
               alt="logo"
@@ -46,6 +46,14 @@
                     class="menu-scroll active aD a9 am az aE aF aG hover:aH dark:hover:aI"
                   >
                     Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="{% url 'client_profile'%}"
+                    class="menu-scroll aD a9 am az aE aF aG hover:aH dark:hover:aI"
+                  >
+                    My Profile
                   </a>
                 </li>
                 {% endblock %}
