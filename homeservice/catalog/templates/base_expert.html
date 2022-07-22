@@ -20,7 +20,7 @@
     <header class="header a1 a2 a3 a4">
       <div class="a5 a4 a6 a7 lg:a8 lg:a9 lg:a7 xl:aa 2xl:ab">
         <div class="ac ad[99] ae[250px] lg:a4 xl:ae[350px]">
-          <a href="{% url 'home_client'%}" class="af">
+          <a href="{% url 'home_expert'%}" class="af">
             <img
               src="{% static 'images/logo-dark.png'%}"
               alt="logo"
@@ -42,7 +42,7 @@
                 {% block menu_items %}
                 <li>
                   <a
-                    href="{% url 'home_client' %}"
+                    href="{% url 'home_expert' %}"
                     class="menu-scroll active aD a9 am az aE aF aG hover:aH dark:hover:aI"
                   >
                     Home
@@ -50,7 +50,7 @@
                 </li>
                 <li>
                   <a
-                    href="{% url 'client_profile'%}"
+                    href="{% url 'expert_profile'%}"
                     class="menu-scroll aD a9 am az aE aF aG hover:aH dark:hover:aI"
                   >
                     My Profile
@@ -65,7 +65,13 @@
             class="a1 a10 a3 a5 a4 a9 a11 a12 a13 ao lg:aq lg:a14 lg:aw lg:au"
           >
             <a
-              href="{% url 'index'%}"
+              href="signup.html"
+              class="a4 a15 aS a16 a17 a18 az aE aI hover:a19 lg:a14"
+            >
+              View Display Profile
+            </a>
+            <a
+              href="signup.html"
               class="a4 a15 aS a_[#222C40] a17 a18 az aE aI hover:a19 lg:a14"
             >
               Log Out

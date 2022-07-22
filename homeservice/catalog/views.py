@@ -42,6 +42,16 @@ def clientProfile(request):
     # Render the HTML template client_profile.html with the data in the context variable
     return render(request, 'client_profile.html', context=context)
 
+def expertProfile(request):
+    """View function of signup page for customers."""
+
+    context = {
+
+    }
+
+    # Render the HTML template expert_profile.html with the data in the context variable
+    return render(request, 'expert_profile.html', context=context)
+
 def expertLogin(request):
     """View function of login page for experts."""
 
@@ -82,7 +92,7 @@ def expertsDetail(request):
     # Render the HTML template experts_detail.html with the data in the context variable
     return render(request, 'experts_detail.html', context=context)
 
-def home(request):
+def homeClient(request):
     """View function for detail view of service experts"""
 
     context = {
@@ -90,4 +100,14 @@ def home(request):
     }
 
     # Render the HTML template home.html with the data in the context variable
-    return render(request, 'home.html', context=context)
+    return render(request, 'client_home.html', context=context)
+
+def homeExpert(request):
+    """View function for detail view of service experts"""
+
+    context = {
+
+    }
+
+    # Render the HTML template home.html with the data in the context variable
+    return render(request, 'expert_home.html', context=context)
