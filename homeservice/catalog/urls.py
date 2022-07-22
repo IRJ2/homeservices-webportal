@@ -12,4 +12,5 @@ urlpatterns = [
     path('client_signup/', views.clientSignup, name='client_signup'),
     path('client_profile/', views.clientProfile, name='client_profile'),
     path('expert_profile/', views.expertProfile, name='expert_profile'),
+    path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
 ]
