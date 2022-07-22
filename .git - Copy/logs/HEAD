@@ -1,0 +1,33 @@
+0000000000000000000000000000000000000000 793c5f3b25063d613e9d4d4aa3bda66b7af5a5a1 unknown <jirenerose@gmail.com> 1656467436 +0530	commit (initial): start project
+793c5f3b25063d613e9d4d4aa3bda66b7af5a5a1 c00c4af22c64e0f04c247dbfe4d433aa00946021 unknown <jirenerose@gmail.com> 1656489455 +0530	commit: create app catalog
+c00c4af22c64e0f04c247dbfe4d433aa00946021 c00c4af22c64e0f04c247dbfe4d433aa00946021 unknown <jirenerose@gmail.com> 1656943694 +0530	checkout: moving from master to playtime
+c00c4af22c64e0f04c247dbfe4d433aa00946021 71d47d015535f1a1e016fd22ae7aa41aa19508a2 unknown <jirenerose@gmail.com> 1656943880 +0530	commit: add index as root url
+71d47d015535f1a1e016fd22ae7aa41aa19508a2 a59d6385910fae6ef0414a876bce04a2a11afcc9 unknown <jirenerose@gmail.com> 1656943949 +0530	commit: create template and add static files-css,js,images
+a59d6385910fae6ef0414a876bce04a2a11afcc9 8f2d3053e22f26734f040837c69005bdc42018ce unknown <jirenerose@gmail.com> 1657015554 +0530	commit: create template for index(landing page)
+8f2d3053e22f26734f040837c69005bdc42018ce c00c4af22c64e0f04c247dbfe4d433aa00946021 unknown <jirenerose@gmail.com> 1657015572 +0530	checkout: moving from playtime to master
+c00c4af22c64e0f04c247dbfe4d433aa00946021 9fdde70f86bef7b00d401e5723272841eb5c709c unknown <jirenerose@gmail.com> 1657015732 +0530	commit: update pycache
+9fdde70f86bef7b00d401e5723272841eb5c709c 9d35d575f7130dfcc7aee480226dcb612d11aa7a unknown <jirenerose@gmail.com> 1657015855 +0530	commit (merge): update cache
+9d35d575f7130dfcc7aee480226dcb612d11aa7a 9d35d575f7130dfcc7aee480226dcb612d11aa7a unknown <jirenerose@gmail.com> 1657015870 +0530	checkout: moving from master to master
+9d35d575f7130dfcc7aee480226dcb612d11aa7a 32b1db105f50badcda8c03d10ebdddfe4ebdc56e unknown <jirenerose@gmail.com> 1657023967 +0530	commit: create client login page
+32b1db105f50badcda8c03d10ebdddfe4ebdc56e 6aed89a2f1c4f123dbec5ce6327e1a09db0ba5b0 unknown <jirenerose@gmail.com> 1657025931 +0530	commit: created worker's login page
+6aed89a2f1c4f123dbec5ce6327e1a09db0ba5b0 8f2d3053e22f26734f040837c69005bdc42018ce unknown <jirenerose@gmail.com> 1657025988 +0530	checkout: moving from master to playtime
+8f2d3053e22f26734f040837c69005bdc42018ce b5de1b2ae7316e285da349ce04841369057a7a8a unknown <jirenerose@gmail.com> 1657026354 +0530	commit: update cache
+b5de1b2ae7316e285da349ce04841369057a7a8a 45caaf96c56b2760baef278f0804eda72382ab2c unknown <jirenerose@gmail.com> 1657032224 +0530	commit (merge): created grid view page
+45caaf96c56b2760baef278f0804eda72382ab2c 6aed89a2f1c4f123dbec5ce6327e1a09db0ba5b0 unknown <jirenerose@gmail.com> 1657032238 +0530	checkout: moving from playtime to master
+6aed89a2f1c4f123dbec5ce6327e1a09db0ba5b0 f578bfc73430b1224c0ccd10aa9e1ee429163052 unknown <jirenerose@gmail.com> 1657032304 +0530	commit: update in cache
+f578bfc73430b1224c0ccd10aa9e1ee429163052 45caaf96c56b2760baef278f0804eda72382ab2c unknown <jirenerose@gmail.com> 1657032397 +0530	checkout: moving from master to playtime
+45caaf96c56b2760baef278f0804eda72382ab2c d18f0830ad3538657cace040b069ac05a97dc58e unknown <jirenerose@gmail.com> 1657032488 +0530	commit (merge): add cache
+d18f0830ad3538657cace040b069ac05a97dc58e f578bfc73430b1224c0ccd10aa9e1ee429163052 unknown <jirenerose@gmail.com> 1657032526 +0530	checkout: moving from playtime to master
+f578bfc73430b1224c0ccd10aa9e1ee429163052 d8dd462f13a8914e3c13f796c93932803f2f3ffa unknown <jirenerose@gmail.com> 1657038202 +0530	commit: update cache
+d8dd462f13a8914e3c13f796c93932803f2f3ffa d18f0830ad3538657cace040b069ac05a97dc58e unknown <jirenerose@gmail.com> 1657038223 +0530	checkout: moving from master to playtime
+d18f0830ad3538657cace040b069ac05a97dc58e 8987bf4e1c9f506e090b6fd310755b60ff7f0b3b unknown <jirenerose@gmail.com> 1657038812 +0530	commit: added input box
+8987bf4e1c9f506e090b6fd310755b60ff7f0b3b 2e60cb0ffd0fa7aa59025458434092f100ec2759 unknown <jirenerose@gmail.com> 1657077099 +0530	commit: created detail view page
+2e60cb0ffd0fa7aa59025458434092f100ec2759 d8dd462f13a8914e3c13f796c93932803f2f3ffa unknown <jirenerose@gmail.com> 1657077112 +0530	checkout: moving from playtime to master
+d8dd462f13a8914e3c13f796c93932803f2f3ffa f4e567cf4b43f109292a9fa257f5ebc7910653ef unknown <jirenerose@gmail.com> 1657092821 +0530	commit: add cache
+f4e567cf4b43f109292a9fa257f5ebc7910653ef 2e60cb0ffd0fa7aa59025458434092f100ec2759 unknown <jirenerose@gmail.com> 1657092825 +0530	checkout: moving from master to playtime
+2e60cb0ffd0fa7aa59025458434092f100ec2759 c7fa8fdd1e6fcd55d60bd8ce99ae26a1e58644b7 unknown <jirenerose@gmail.com> 1657124648 +0530	commit: created detail view page and made requested change
+c7fa8fdd1e6fcd55d60bd8ce99ae26a1e58644b7 f4e567cf4b43f109292a9fa257f5ebc7910653ef unknown <jirenerose@gmail.com> 1657124659 +0530	checkout: moving from playtime to master
+f4e567cf4b43f109292a9fa257f5ebc7910653ef cb4d44650962159ea7b549eed0e7a611e18834ee unknown <jirenerose@gmail.com> 1657125450 +0530	commit: add cach
+cb4d44650962159ea7b549eed0e7a611e18834ee c7fa8fdd1e6fcd55d60bd8ce99ae26a1e58644b7 unknown <jirenerose@gmail.com> 1657125466 +0530	checkout: moving from master to playtime
+c7fa8fdd1e6fcd55d60bd8ce99ae26a1e58644b7 967905a70c498b6ae15998b62a3ee17fa3956877 unknown <jirenerose@gmail.com> 1657128788 +0530	commit: added log out button, rearranged details view
+967905a70c498b6ae15998b62a3ee17fa3956877 1bfe2fee040c807d055843c937d07d554f0c918d unknown <jirenerose@gmail.com> 1657128903 +0530	commit: removed about us from menu
