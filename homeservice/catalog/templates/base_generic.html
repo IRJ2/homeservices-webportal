@@ -20,7 +20,9 @@
     <header class="header a1 a2 a3 a4">
       <div class="a5 a4 a6 a7 lg:a8 lg:a9 lg:a7 xl:aa 2xl:ab">
         <div class="ac ad[99] ae[250px] lg:a4 xl:ae[350px]">
+          {% block homeurl %}
           <a href="{% url 'home_client'%}" class="af">
+            {% endblock %}
             <img
               src="{% static 'images/logo-dark.png'%}"
               alt="logo"
