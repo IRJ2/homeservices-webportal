@@ -30,10 +30,10 @@ def clientSignup(request):
         email = request.POST['email']
         password1 = request.POST['password']
 
-        client = Customer.objects.create()
-        client.f_name = name
-        client.c_uid = email
-        client.c_password1 = password1
+        client = Customer.objects.create(c_fname = name,c_uid = email,c_password = password1)
+        # client.c_fname = name
+        # client.c_uid = email
+        # client.c_password = password1
 
         client.save()
 
