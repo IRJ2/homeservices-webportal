@@ -1,9 +1,12 @@
-{% extends "base_generic.html" %} {% block homeurl %}
+{% extends "base_generic.html" %}
+{% block title %}
+    <title>Workon | Login</title>
+    {% endblock %} {% block homeurl %}
 <a href="{% url 'index'%}" class="af">
   {% endblock %} {% block menu_items %}{% endblock %} {% block rightMenuItem %}
   <div class="a1 a10 a3 a5 a4 a9 a11 a12 a13 ao lg:aq lg:a14 lg:aw lg:au">
     <a
-      href="{% url 'client_signup' %}"
+      href="{% url 'expert_signup' %}"
       class="a4 a15 aS a_[#222C40] a17 a18 az aE aI hover:a19 lg:a14"
     >
       Sign Up
