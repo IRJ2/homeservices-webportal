@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
+from catalog.models import *
 
 # Create your views here.
 def index(request):
@@ -24,6 +25,19 @@ def clientLogin(request):
 
 def clientSignup(request):
     """View function of signup page for customers."""
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        password1 = request.POST['password']
+
+        client = Customer.objects.create()
+        client.f_name = name
+        client.c_uid = email
+        client.c_password1 = password1
+
+        client.save()
+
+        return redirect('client_login')
 
     context = {
 
@@ -74,7 +88,20 @@ def expertLogin(request):
 
 def expertSignup(request):
     """View function for signup page of service experts"""
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        password1 = request.POST['password']
+        password2 = request.POST['re-password']
 
+        expert = Worker.objects.create()
+        expert.f_name = name
+        expert.c_uid = email
+        expert.c_password1 = password1
+
+        expert.save()
+
+        return redirect('expert_login')
     context = {
 
     }
