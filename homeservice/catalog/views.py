@@ -73,14 +73,14 @@ def expertLogin(request):
     return render(request, 'expert_login.html', context=context)
 
 def expertSignup(request):
-    """View function for detail view of service experts"""
+    """View function for signup page of service experts"""
 
     context = {
 
     }
 
-    # Render the HTML template experts_detail.html with the data in the context variable
-    return render(request, 'experts_detail.html', context=context)
+    # Render the HTML template expert_signup.html with the data in the context variable
+    return render(request, 'expert_signup.html', context=context)
 
 def expertsList(request):
     """View function of list view of service experts"""

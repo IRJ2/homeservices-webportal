@@ -15,27 +15,27 @@
     darkTogglerCheckbox.addEventListener("click", darkModeToggler);
   
     // ======= Sticky
-    window.onscroll = function () {
-      const ud_header = document.querySelector(".header");
-      const sticky = ud_header.offsetTop;
+    // window.onscroll = function () {
+    //   const ud_header = document.querySelector(".header");
+    //   const sticky = ud_header.offsetTop;
   
-      if (window.pageYOffset > sticky) {
-        ud_header.classList.add("sticky");
-      } else {
-        ud_header.classList.remove("sticky");
-      }
+    //   if (window.pageYOffset > sticky) {
+    //     ud_header.classList.add("sticky");
+    //   } else {
+    //     ud_header.classList.remove("sticky");
+    //   }
   
-      // show or hide the back-top-top button
-      const backToTop = document.querySelector(".back-to-top");
-      if (
-        document.body.scrollTop > 50 ||
-        document.documentElement.scrollTop > 50
-      ) {
-        backToTop.style.display = "flex";
-      } else {
-        backToTop.style.display = "none";
-      }
-    };
+    //   // show or hide the back-top-top button
+    //   const backToTop = document.querySelector(".back-to-top");
+    //   if (
+    //     document.body.scrollTop > 50 ||
+    //     document.documentElement.scrollTop > 50
+    //   ) {
+    //     backToTop.style.display = "flex";
+    //   } else {
+    //     backToTop.style.display = "none";
+    //   }
+    // };
   
     // Mobile Menu
     const menuToggler = document.querySelector(".menu-toggler");
