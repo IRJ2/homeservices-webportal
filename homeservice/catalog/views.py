@@ -29,12 +29,21 @@ def clientSignup(request):
         name = request.POST['name']
         email = request.POST['email']
         password1 = request.POST['password']
+        password2 = request.POST['re-password']
 
+<<<<<<< HEAD
         client = Customer.objects.create(c_fname = name,c_uid = email,c_password = password1)
+=======
+        if password1==password2 :
+            client = Customer.objects.create(c_fname = name,
+                                            c_uid = email,
+                                            c_password = password1)
+            client.save()
+            return redirect('client_login')
+        else:
+            return redirect('client_signup')
+>>>>>>> 4fe968d7b738fd88246d18df1e01bc2292729e09
 
-        client.save()
-
-        return redirect('client_login')
 
     context = {
 
@@ -90,15 +99,28 @@ def expertSignup(request):
         email = request.POST['email']
         password1 = request.POST['password']
         password2 = request.POST['re-password']
+        companyname = request.POST['companyname']
+        categories = request.POST['categories']
+        rate = request.POST['rate']
+        motto = request.POST['motto']
+        desc = request.POST['desc']
+        phone = request.POST['phone']
 
-        expert = Worker.objects.create()
-        expert.f_name = name
-        expert.c_uid = email
-        expert.c_password1 = password1
+        if password1==password2 :
+            expert = Worker.objects.create(W_fname = name,
+                                            W_email = email,
+                                            W_password = password1,
+                                            W_company = companyname,
+                                            W_company_motto = motto,
+                                            W_desc = desc,
+                                            W_category = categories,
+                                            w_phno = phone,
+                                            Rate_P_Hour = rate)
+            expert.save()
+            return redirect('expert_login')
+        else:
+            return redirect('expert_signup')
 
-        expert.save()
-
-        return redirect('expert_login')
     context = {
 
     }
