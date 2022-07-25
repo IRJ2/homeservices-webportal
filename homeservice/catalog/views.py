@@ -31,9 +31,6 @@ def clientSignup(request):
         password1 = request.POST['password']
 
         client = Customer.objects.create(c_fname = name,c_uid = email,c_password = password1)
-        # client.c_fname = name
-        # client.c_uid = email
-        # client.c_password = password1
 
         client.save()
 
