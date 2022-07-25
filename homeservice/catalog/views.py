@@ -31,9 +31,7 @@ def clientSignup(request):
         password1 = request.POST['password']
         password2 = request.POST['re-password']
 
-<<<<<<< HEAD
-        client = Customer.objects.create(c_fname = name,c_uid = email,c_password = password1)
-=======
+
         if password1==password2 :
             client = Customer.objects.create(c_fname = name,
                                             c_uid = email,
@@ -42,9 +40,6 @@ def clientSignup(request):
             return redirect('client_login')
         else:
             return redirect('client_signup')
->>>>>>> 4fe968d7b738fd88246d18df1e01bc2292729e09
-
-
     context = {
 
     }
