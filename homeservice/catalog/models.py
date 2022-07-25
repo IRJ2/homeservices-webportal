@@ -2,7 +2,7 @@ from django.db import models
 
 class Customer(models.Model):
     """Model of user module"""
-    c_uid = models.CharField(max_length=20) #User's Id
+    c_uid = models.CharField(primary_key=True, max_length=20) #User's Id
     c_password = models.CharField(max_length=20) #User's password
     c_fname = models.CharField(max_length=20) #User's first name
     c_lname = models.CharField(max_length=20,blank=True) #User's last name
@@ -14,16 +14,17 @@ class Customer(models.Model):
 class Worker(models.Model):
     """Model of worker module"""
     W_fname=models.CharField(max_length=200)#Worker's first name
-    W_lname=models.CharField(max_length=200,blank=True)#Worker's last name
-    W_id=models.IntegerField(primary_key=True)#Worker's id
-    W_email=models.EmailField(max_length=300,blank=True,null=True)#Worker's email
+    W_email=models.EmailField(primary_key=True,  max_length=30)#Worker's email
+    W_password=models.CharField(max_length=20, default='00000')#Worker's password
     W_category=models.CharField(max_length=200)##Worker's category of working 
-    W_pin=models.IntegerField()#Worker's pincode
+    W_company = models.CharField(max_length=20,default='company')
+    W_company_motto = models.CharField(max_length=50, default='motto')
+    W_desc = models.CharField(max_length=200,default='description')
     w_phno=models.IntegerField()#Worker's phone number
     Rate_P_Hour=models.IntegerField()#wage of worker per hour 
 
     def __str__(self):
-        return self.W_id
+        return self.W_fname
 
 class review(models.Model):
     """Model of review module"""
