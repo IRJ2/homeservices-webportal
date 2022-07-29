@@ -21,17 +21,14 @@ def clientLogin(request):
         email = request.POST['email']
         password1 = request.POST['password']
         
-        check_client = Customer.objects.filter(c_uid  = email, c_password = password1).count()
+        client = Customer.objects.filter(c_uid = email, c_password = password1).count()
 
-        if check_client == 1:
-            request.session['client'] = email
+        if client == 1:
+            request.session['email'] = email
             return redirect('home_client')
 
         else:
             return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
-    else:
-        return render(request, 'client_login.html')
-
     context = {
 
     }
@@ -99,10 +96,10 @@ def expertLogin(request):
         email = request.POST['email']
         password1 = request.POST['password']
         
-        check_expert = Worker.objects.filter(W_email  = email, W_password = password1).count()
+        check_expert = Worker.objects.filter(W_email  = email, W_password = password1)
 
-        if check_expert == 1:
-            request.session['expert'] = email
+        if check_expert is not None:
+            request.session['email'] = email
             return redirect('home_expert')
         else:
             return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
@@ -175,7 +172,9 @@ def expertsDetail(request):
 
 def homeClient(request):
     """View function for detail view of service experts"""
-
+    if 'email' in request.session:
+        return render(request, 'client_home.html')
+    return redirect('index')
     context = {
 
     }
