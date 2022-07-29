@@ -1,14 +1,13 @@
+from django.http import  HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
-from django.db import IntegrityError
-
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
     """View function for home page of site."""
+
     context = {
 
     }
@@ -18,19 +17,21 @@ def index(request):
 
 def clientLogin(request):
     """View function of login page for customers."""
-    if request.method == 'POST' :
+    if request.method == "POST":
         email = request.POST['email']
         password1 = request.POST['password']
+        
+        check_client = Customer.objects.filter(c_uid  = email, c_password = password1).count()
 
-        if Customer.objects.filter(c_uid = email, c_password = password1).exists():
+        if check_client == 1:
+            request.session['client'] = email
             return redirect('home_client')
 
         else:
-            return HttpResponse('<h3 style="color:blue;text-align:center">Invalid Credentials</h3>')
-
+            return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
     else:
         return render(request, 'client_login.html')
-    
+
     context = {
 
     }
@@ -46,15 +47,12 @@ def clientSignup(request):
         password1 = request.POST['password']
         password2 = request.POST['re-password']
 
-        if password1==password2:
-            if Customer.objects.filter(c_uid = email).exists():
-                return redirect('client_signup')
-            else:
-                client = Customer.objects.create(c_fname = name,
-                                                c_uid = email,
-                                                c_password = password1)
-                client.save()
-                return redirect('client_login')
+        if password1==password2 :
+            client = Customer.objects.create(c_fname = name,
+                                            c_uid = email,
+                                            c_password = password1)
+            client.save()
+            return redirect('client_login')
         else:
             return redirect('client_signup')
 
@@ -98,19 +96,20 @@ def expertDisplayProfile(request):
 
 def expertLogin(request):
     """View function of login page for experts."""
-    if request.method == 'POST' :
+    if request.method == "POST":
         email = request.POST['email']
         password1 = request.POST['password']
+        
+        check_expert = Worker.objects.filter(W_email  = email, W_password = password1).count()
 
-        if Worker.objects.filter(W_email = email, W_password = password1).exists():
-            return redirect('expert_profile')
-
+        if check_expert == 1:
+            request.session['expert'] = email
+            return redirect('home_expert')
         else:
-            return HttpResponse('<h3 style="color:blue;text-align:center">Invalid Credentials</h3>')
-
-    else:
-        return render(request, 'client_login.html')
+            return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
     
+    else:
+        return render(request, 'expert_login.html')
     context = {
 
     }
@@ -132,21 +131,18 @@ def expertSignup(request):
         desc = request.POST['desc']
         phone = request.POST['phone']
 
-        if password1==password2:
-            if Worker.objects.filter(W_email = email).exists():
-                return redirect('expert_signup')
-            else:
-                expert = Worker.objects.create(W_fname = name,
-                                                W_email = email,
-                                                W_password = password1,
-                                                W_company = companyname,
-                                                W_company_motto = motto,
-                                                W_desc = desc,
-                                                W_category = categories,
-                                                w_phno = phone,
-                                                Rate_P_Hour = rate)
-                expert.save()
-                return redirect('expert_login')
+        if password1==password2 :
+            expert = Worker.objects.create(W_fname = name,
+                                            W_email = email,
+                                            W_password = password1,
+                                            W_company = companyname,
+                                            W_company_motto = motto,
+                                            W_desc = desc,
+                                            W_category = categories,
+                                            w_phno = phone,
+                                            Rate_P_Hour = rate)
+            expert.save()
+            return redirect('expert_login')
         else:
             return redirect('expert_signup')
 
