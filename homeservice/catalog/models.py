@@ -2,16 +2,7 @@ from django.db import models
 
 class Customer(models.Model):
     """Model of user module"""
-<<<<<<< HEAD
-    c_uid = models.CharField(max_length=20) #User's Id
-    c_password = models.CharField(max_length=20) #User's password
-    c_fname = models.CharField(max_length=20) #User's first name
-    c_lname = models.CharField(max_length=20) #User's last name
-    
-    def __str__(self) :
-        """Returns the attribute in admin page"""
-        return self.c_fname 
-=======
+
     c_uid = models.CharField(primary_key=True, max_length=20) #User's Id
     c_password = models.CharField(max_length=20) #User's password
     c_fname = models.CharField(max_length=20) #User's first name
@@ -44,4 +35,3 @@ class review(models.Model):
 
     def __str__(self):
         return self.W_id
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f

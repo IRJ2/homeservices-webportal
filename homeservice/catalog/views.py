@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-from django.views import generic
-=======
+
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
 
 # Create your views here.
 def index(request):
@@ -28,10 +24,7 @@ def clientLogin(request):
     # Render the HTML template client_login.html with the data in the context variable
     return render(request, 'client_login.html', context=context)
 
-<<<<<<< HEAD
-def workerLogin(request):
-    """View function of login page for workers."""
-=======
+
 def clientSignup(request):
     """View function of signup page for customers."""
     if request.method == "POST":
@@ -58,16 +51,13 @@ def clientSignup(request):
 
 def clientProfile(request):
     """View function of signup page for customers."""
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
+
 
     context = {
 
     }
 
-<<<<<<< HEAD
-    # Render the HTML template index.html with the data in the context variable
-    return render(request, 'worker_login.html', context=context)
-=======
+
     # Render the HTML template client_profile.html with the data in the context variable
     return render(request, 'client_profile.html', context=context)
 
@@ -136,7 +126,6 @@ def expertSignup(request):
 
     # Render the HTML template expert_signup.html with the data in the context variable
     return render(request, 'expert_signup.html', context=context)
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
 
 def expertsList(request):
     """View function of list view of service experts"""
@@ -145,11 +134,8 @@ def expertsList(request):
 
     }
 
-<<<<<<< HEAD
-    # Render the HTML template index.html with the data in the context variable
-=======
+
     # Render the HTML template experts_list.html with the data in the context variable
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
     return render(request, 'experts_list.html', context=context)
 
 def expertsDetail(request):
@@ -158,11 +144,6 @@ def expertsDetail(request):
     context = {
 
     }
-
-<<<<<<< HEAD
-    # Render the HTML template index.html with the data in the context variable
-    return render(request, 'experts_detail.html', context=context)
-=======
     # Render the HTML template experts_detail.html with the data in the context variable
     return render(request, 'experts_detail.html', context=context)
 
@@ -185,4 +166,4 @@ def homeExpert(request):
 
     # Render the HTML template home.html with the data in the context variable
     return render(request, 'expert_home.html', context=context)
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
+

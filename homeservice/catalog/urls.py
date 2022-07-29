@@ -4,11 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('client_login/', views.clientLogin, name='client_login'),
-<<<<<<< HEAD
-    path('worker_login/', views.workerLogin, name='worker_login'),
-    path('experts/', views.expertsList, name='experts_list'),
-    path('detail/', views.expertsDetail, name='experts_detail'),
-=======
     path('expert_login/', views.expertLogin, name='expert_login'),
     path('experts/', views.expertsList, name='experts_list'),
     path('detail/', views.expertsDetail, name='experts_detail'),
@@ -20,5 +15,4 @@ urlpatterns = [
     path('expert_signup/', views.expertSignup, name='expert_signup'),
     path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
 
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
 ]
