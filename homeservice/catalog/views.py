@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 
+=======
+from django.http import  HttpResponse
+>>>>>>> 0a8b21bcd24d30b9e28c94adbdf8e781e92ecb2d
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -16,6 +21,20 @@ def index(request):
 
 def clientLogin(request):
     """View function of login page for customers."""
+    if request.method == "POST":
+        email = request.POST['email']
+        password1 = request.POST['password']
+        
+        check_client = Customer.objects.filter(c_uid  = email, c_password = password1).count()
+
+        if check_client == 1:
+            request.session['client'] = email
+            return redirect('home_client')
+
+        else:
+            return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
+    else:
+        return render(request, 'client_login.html')
 
     context = {
 
@@ -83,7 +102,20 @@ def expertDisplayProfile(request):
 
 def expertLogin(request):
     """View function of login page for experts."""
+    if request.method == "POST":
+        email = request.POST['email']
+        password1 = request.POST['password']
+        
+        check_expert = Worker.objects.filter(W_email  = email, W_password = password1).count()
 
+        if check_expert == 1:
+            request.session['expert'] = email
+            return redirect('home_expert')
+        else:
+            return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
+    
+    else:
+        return render(request, 'expert_login.html')
     context = {
 
     }
@@ -119,6 +151,7 @@ def expertSignup(request):
             return redirect('expert_login')
         else:
             return redirect('expert_signup')
+
 
     context = {
 
