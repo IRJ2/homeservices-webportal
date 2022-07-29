@@ -15,6 +15,6 @@ urlpatterns = [
     path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
 
     path('plumbing_service/', views.PlumbingListView.as_view(), name='plumbing_list'),
-    path('plumbing_service/<int:pk>', views.ExpertDetailView.as_view(), name='expert_detail'),
+    path('plumbing_service/<str:pk>', views.ExpertDetailView.as_view(), name='expert_detail'),
 
 ]

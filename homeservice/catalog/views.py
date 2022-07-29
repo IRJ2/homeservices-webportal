@@ -158,16 +158,6 @@ def expertSignup(request):
     # Render the HTML template expert_signup.html with the data in the context variable
     return render(request, 'expert_signup.html', context=context)
 
-# def expertsList(request):
-#     """View function of list view of service experts"""
-
-#     context = {
-
-#     }
-
-
-#     # Render the HTML template experts_list.html with the data in the context variable
-#     return render(request, 'experts_list.html', context=context)
 class PlumbingListView(generic.ListView):
     model = Worker
     context_object_name = 'expert_list'   # expert_list is a list of template variable
@@ -182,16 +172,7 @@ class ExpertDetailView(generic.DetailView):
         except Worker.DoesNotExist:
             raise Http404('Expert does not exist')
 
-        return render(request, 'catalog/experts_detail.html', context={'expert': expert})
-
-# def expertsDetail(request):
-#     """View function for detail view of service experts"""
-
-#     context = {
-
-#     }
-#     # Render the HTML template experts_detail.html with the data in the context variable
-#     return render(request, 'experts_detail.html', context=context)
+        return render(request, 'catalog/worker_detail.html', context={'expert': expert})
 
 def homeClient(request):
     """View function for detail view of service experts"""
