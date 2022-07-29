@@ -24,8 +24,8 @@
     </div>
     <div class="a4 a1x a1y dark:a1z[#2E333D]">
       <div class="a1R a5 a6">
-        {% if expert_list %}
-          {% for expert in expert_list %}
+        {% if worker_list %}
+          {% for expert in worker_list %}
           <div class="a4 a1v md:a1S/2 lg:a1S/3">
             <div class="wow fadeInUp a1M" data-wow-delay=".2s">
               <div class="ac a1E a2T aS">
@@ -76,7 +76,7 @@
           </div>
           {% endfor %}
         {% else %}
-          <p>There are no experts in this category.</p>
+          <p class="a3s ai aE aF a1t dark:aI">There are no experts in this category.</p>
         {% endif %} 
         {% comment %} Repeating block {% endcomment %}
       </div>

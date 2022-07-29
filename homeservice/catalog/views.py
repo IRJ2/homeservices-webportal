@@ -159,19 +159,51 @@ def expertSignup(request):
     return render(request, 'expert_signup.html', context=context)
 
 class PlumbingListView(generic.ListView):
+    """Class for the list view of experts in Plumbing Service"""
     model = Worker
-    context_object_name = 'expert_list'   # expert_list is a list of template variable
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
     queryset = Worker.objects.filter(W_category__icontains='Plumbing Service')[0:] # Get all experts containing in Plumbing Service category
     template_name = 'catalog/experts_list.html'  # Specify template location
 
+class ACServicingListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='AC Servicing')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
+
+class CarpentryListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Carpentry')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
+
+class ElectricWorksListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Electric Works')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
+
+class HomeCleaningListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Home Cleaning')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
+
+class LaptopRepairListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Laptop Repair')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
+
 class ExpertDetailView(generic.DetailView):
+    """Class for the detail view of experts"""
     model = Worker
     def expert_detail_view(request, primary_key):
         try:
-            expert = Worker.objects.get(pk=primary_key)
+            # expert = Worker.objects.get(pk=primary_key)
+            expert = Worker.objects.filter(W_email__icontains=primary_key)[:1]
         except Worker.DoesNotExist:
             raise Http404('Expert does not exist')
-
         return render(request, 'catalog/worker_detail.html', context={'expert': expert})
 
 def homeClient(request):

@@ -18,7 +18,7 @@
         <div class="a1v xl:a1w">
           <div class="a1B ae[580px] az">
             <h1 class="a1E aE a1J a1G a1t dark:aI md:a1F[44px] md:a2E">
-              {{ expert.W_company }}
+              {{ object.W_company }}
             </h1>
             <div class="a2F a5 a6 a9 am">
               <div class="a5 a9 a7">
@@ -26,7 +26,7 @@
                   {% load static %}
                   <img src="{% static 'images/worker-demo.jpg' %}" alt="author" class="a4" />
                 </div>
-                <p class="aE aF aG dark:aI">{{ expert.W_fname }}</p>
+                <p class="aE aF aG dark:aI">{{ object.W_fname }}</p>
               </div>
               <div class="a5 a9 a7">
                 <span class="a2H aG dark:aI">
@@ -36,7 +36,7 @@
                     />
                   </svg>
                 </span>
-                <p class="aE aF aG dark:aI">{{ expert.W_category }}</p>
+                <p class="aE aF aG dark:aI">{{ object.W_category }}</p>
               </div>
               <div class="a5 a9 a7">
                 <span class="a2H aG dark:aI">
@@ -46,7 +46,7 @@
                     />
                   </svg>
                 </span>
-                <p class="aE aF aG dark:aI">{{ expert.Rate_P_Hour }}Rs/hr</p>
+                <p class="aE aF aG dark:aI">{{ object.Rate_P_Hour }}Rs/hr</p>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
         <div class="a1x a1y dark:a1z[#2E333D] lg:a1A[130px]">
           <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
             <p class="a1X aF aG">
-              {{ expert.W_desc }}
+              {{ object.W_desc }}
             </p>
             
           </div>
@@ -101,9 +101,9 @@
                 </svg>
               </span>
               <p class="a1I az aE a2N aG">
-                {{ expert.W_company_motto }}
+                {{ object.W_company_motto }}
               </p>
-              <p class="az aE aF aG">“{{ expert.W_fname }}”</p>
+              <p class="az aE aF aG">“{{ object.W_fname }}”</p>
             </div>
           </div>
 
