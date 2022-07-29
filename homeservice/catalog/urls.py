@@ -5,8 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('client_login/', views.clientLogin, name='client_login'),
     path('expert_login/', views.expertLogin, name='expert_login'),
-    path('experts/', views.expertsList, name='experts_list'),
-    path('detail/', views.expertsDetail, name='experts_detail'),
+    # path('detail/', views.expertsDetail, name='experts_detail'),
     path('home_client/', views.homeClient, name='home_client'),
     path('home_expert/', views.homeExpert, name='home_expert'),
     path('client_signup/', views.clientSignup, name='client_signup'),
@@ -14,5 +13,8 @@ urlpatterns = [
     path('expert_profile/', views.expertProfile, name='expert_profile'),
     path('expert_signup/', views.expertSignup, name='expert_signup'),
     path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
+
+    path('plumbing_service/', views.PlumbingListView.as_view(), name='plumbing_list'),
+    path('plumbing_service/<int:pk>', views.ExpertDetailView.as_view(), name='expert_detail'),
 
 ]

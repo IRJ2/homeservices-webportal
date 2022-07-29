@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 
-=======
 from django.http import  HttpResponse
->>>>>>> 0a8b21bcd24d30b9e28c94adbdf8e781e92ecb2d
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
 from django.contrib import messages
+from django.http import Http404
 
 # Create your views here.
 def index(request):
@@ -160,25 +158,40 @@ def expertSignup(request):
     # Render the HTML template expert_signup.html with the data in the context variable
     return render(request, 'expert_signup.html', context=context)
 
-def expertsList(request):
-    """View function of list view of service experts"""
+# def expertsList(request):
+#     """View function of list view of service experts"""
 
-    context = {
+#     context = {
 
-    }
+#     }
 
 
-    # Render the HTML template experts_list.html with the data in the context variable
-    return render(request, 'experts_list.html', context=context)
+#     # Render the HTML template experts_list.html with the data in the context variable
+#     return render(request, 'experts_list.html', context=context)
+class PlumbingListView(generic.ListView):
+    model = Worker
+    context_object_name = 'expert_list'   # expert_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Plumbing Service')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-def expertsDetail(request):
-    """View function for detail view of service experts"""
+class ExpertDetailView(generic.DetailView):
+    model = Worker
+    def expert_detail_view(request, primary_key):
+        try:
+            expert = Worker.objects.get(pk=primary_key)
+        except Worker.DoesNotExist:
+            raise Http404('Expert does not exist')
 
-    context = {
+        return render(request, 'catalog/experts_detail.html', context={'expert': expert})
 
-    }
-    # Render the HTML template experts_detail.html with the data in the context variable
-    return render(request, 'experts_detail.html', context=context)
+# def expertsDetail(request):
+#     """View function for detail view of service experts"""
+
+#     context = {
+
+#     }
+#     # Render the HTML template experts_detail.html with the data in the context variable
+#     return render(request, 'experts_detail.html', context=context)
 
 def homeClient(request):
     """View function for detail view of service experts"""
