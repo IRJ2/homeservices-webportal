@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
@@ -15,6 +16,17 @@ def index(request):
 
 def clientLogin(request):
     """View function of login page for customers."""
+    if request.method == 'POST':
+        email = request.POST['email']
+        password1 = request.POST['password']
+
+        client = Customer.objects.filter(c_uid = email, c_password = password1).count()
+
+        if client == 1:
+            request.session['email'] = email
+            return redirect('home_client')
+        else:
+            return HttpResponse("Invalid Credentials")
 
     context = {
 
@@ -30,7 +42,6 @@ def clientSignup(request):
         email = request.POST['email']
         password1 = request.POST['password']
         password2 = request.POST['re-password']
-
 
         if password1==password2 :
             client = Customer.objects.create(c_fname = name,
@@ -79,7 +90,17 @@ def expertDisplayProfile(request):
 
 def expertLogin(request):
     """View function of login page for experts."""
+    if request.method == 'POST':
+        email = request.POST['email']
+        password1 = request.POST['password']
 
+        expert = Worker.objects.filter(W_email = email, W_password = password1).count()
+
+        if expert == 1:
+            request.session['email'] = email
+            return redirect('home_expert')
+        else:
+            return HttpResponse("Invalid Credentials")
     context = {
 
     }
@@ -145,20 +166,28 @@ def expertsDetail(request):
 
 def homeClient(request):
     """View function for detail view of service experts"""
+    if 'email' in request.session:
+        
+        context = {
 
-    context = {
+        }
 
-    }
-
-    # Render the HTML template home.html with the data in the context variable
-    return render(request, 'client_home.html', context=context)
+            # Render the HTML template home.html with the data in the context variable
+        return render(request, 'client_home.html', context=context)
+    return redirect('index')
 
 def homeExpert(request):
     """View function for detail view of service experts"""
+    if 'email' in request.session:
+        context = {
 
-    context = {
+        }
 
-    }
+        # Render the HTML template home.html with the data in the context variable
+        return render(request, 'expert_home.html', context=context)
+    return redirect('index')
 
-    # Render the HTML template home.html with the data in the context variable
-    return render(request, 'expert_home.html', context=context)
+def logout(request):
+    if 'email' in request.session:
+        request.session.flush()
+    return redirect('index')

@@ -14,5 +14,5 @@ urlpatterns = [
     path('expert_profile/', views.expertProfile, name='expert_profile'),
     path('expert_signup/', views.expertSignup, name='expert_signup'),
     path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
-
+    path('logout/', views.logout, name='logout'),
 ]
