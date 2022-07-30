@@ -1,11 +1,9 @@
-
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
 from django.contrib import messages
 from django.http import Http404
-
 
 # Create your views here.
 def index(request):
@@ -28,6 +26,7 @@ def clientLogin(request):
 
         if client == 1:
             request.session['email'] = email
+            request.session['usr_type']="user"
             return redirect('home_client')
         else:
             return HttpResponse("Invalid Credentials")
@@ -76,15 +75,6 @@ def clientProfile(request):
         return redirect('index')
 
 
-
-    context = {
-
-    }
-
-
-    # Render the HTML template client_profile.html with the data in the context variable
-    return render(request, 'client_profile.html', context=context)
-
 def expertProfile(request):
     """View function of expert's profile page for experts."""
     if 'email' in request.session:
@@ -117,6 +107,7 @@ def expertLogin(request):
 
         if expert == 1:
             request.session['email'] = email
+            request.session['usr_type']="worker"
             return redirect('home_expert')
         else:
             return HttpResponse("Invalid Credentials")
@@ -163,6 +154,24 @@ def expertSignup(request):
     # Render the HTML template expert_signup.html with the data in the context variable
     return render(request, 'expert_signup.html', context=context)
 
+def getTemplateList(request):
+    """Function to get the base generic template with respect to the type of user"""
+    context = {}
+    if request.session['usr_type'] == "user":
+        context['parent_template'] = 'base_generic.html'
+    else:
+        context['parent_template'] = 'base_expert.html'
+    return render(request, 'catalog/experts_list.html', context=context)
+
+def getTemplateDetail(request):
+    """Function to get the base generic template with respect to the type of user"""
+    context = {}
+    if request.session['usr_type'] == "user":
+        context['parent_template'] = 'base_generic.html'
+    else:
+        context['parent_template'] = 'base_expert.html'
+    return render(request, 'catalog/worker_detail.html', context=context)
+    
 class PlumbingListView(generic.ListView):
     """Class for the list view of experts in Plumbing Service"""
     model = Worker
