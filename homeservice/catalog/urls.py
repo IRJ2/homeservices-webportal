@@ -12,7 +12,6 @@ urlpatterns = [
     path('expert_profile/', views.expertProfile, name='expert_profile'),
     path('expert_signup/', views.expertSignup, name='expert_signup'),
     path('expert_dis_profile/', views.expertDisplayProfile, name='expert_display_profile'),
-<<<<<<< HEAD
 
     path('plumbing_service/', views.PlumbingListView.as_view(), name='plumbing_list'),
     path('ac_service/', views.ACServicingListView.as_view(), name='ac_list'),
@@ -23,7 +22,5 @@ urlpatterns = [
 
     path('plumbing_service/<str:pk>', views.ExpertDetailView.as_view(), name='expert_detail'),
 
-=======
     path('logout/', views.logout, name='logout'),
->>>>>>> 8897a62c169c356ca4d3a939222907670067f017
 ]
