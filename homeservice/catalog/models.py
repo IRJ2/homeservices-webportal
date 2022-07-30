@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 
 class Customer(models.Model):
     """Model of user module"""
@@ -17,7 +18,7 @@ class Worker(models.Model):
     W_email=models.EmailField(primary_key=True,  max_length=30)#Worker's email
     W_password= models.CharField(max_length=20)#Worker's password
     W_category=models.CharField(max_length=200)##Worker's category of working 
-    W_company = models.CharField(max_length=20,default='company')#Worker's company name
+    W_company = models.CharField(max_length=100,default='company')#Worker's company name
     W_company_motto = models.CharField(max_length=50, default='motto')#Worker's company motto
     W_desc = models.CharField(max_length=200,default='description')#Worker's description
     w_phno=models.IntegerField()#Worker's phone number
@@ -25,6 +26,10 @@ class Worker(models.Model):
 
     def __str__(self):
         return self.W_fname
+
+    def get_absolute_url(self):
+        """Returns the URL to access a detail record for this Worker."""
+        return reverse('expert_detail', args=[str(self.W_email)])
 
 class review(models.Model):
     """Model of review module"""
