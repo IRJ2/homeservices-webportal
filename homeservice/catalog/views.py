@@ -66,6 +66,16 @@ def clientSignup(request):
 def clientProfile(request):
     """View function of signup page for customers."""
 
+    if 'email' in request.session:
+        current_client = request.session['email']
+        client = Customer.objects.get(c_uid = current_client)
+        context = {'client' : client}
+        # Render the HTML template client_profile.html with the data in the context variable
+        return render(request, 'client_profile.html',context=context)
+    else:
+        return redirect('index')
+
+
 
     context = {
 
@@ -77,23 +87,25 @@ def clientProfile(request):
 
 def expertProfile(request):
     """View function of expert's profile page for experts."""
-
-    context = {
-
-    }
-
-    # Render the HTML template expert_profile.html with the data in the context variable
-    return render(request, 'expert_profile.html', context=context)
-
+    if 'email' in request.session:
+        current_expert = request.session['email']
+        expert = Worker.objects.get(W_email = current_expert)
+        context = {'expert' : expert}
+        # Render the HTML template expert_profile.html with the data in the context variable
+        return render(request, 'expert_profile.html',context=context)
+    else:
+        return redirect('index')
+    
 def expertDisplayProfile(request):
     """View function of expert's profile page for experts."""
-
-    context = {
-
-    }
-
-    # Render the HTML template expert_Display_profile.html with the data in the context variable
-    return render(request, 'expert_display_profile.html', context=context)
+    if 'email' in request.session:
+        current_expert = request.session['email']
+        expert = Worker.objects.get(W_email = current_expert)
+        context = {'expert' : expert}
+        # Render the HTML template expert_Display_profile.html with the data in the context variable
+        return render(request, 'expert_display_profile.html', context=context)
+    else:
+        return redirect('index')
 
 def expertLogin(request):
     """View function of login page for experts."""
