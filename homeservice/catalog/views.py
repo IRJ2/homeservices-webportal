@@ -1,9 +1,7 @@
-from http import client
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
-from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -18,18 +16,24 @@ def index(request):
 
 def clientLogin(request):
     """View function of login page for customers."""
-    
     if request.method == 'POST':
-        email = request.POST.get('email')
-        password1 = request.POST.get('password')
-        client = Customer.objects.filter(c_uid = email, c_password = password1)
-        if client is not None:
+        email = request.POST['email']
+        password1 = request.POST['password']
+
+        client = Customer.objects.filter(c_uid = email, c_password = password1).count()
+
+        if client == 1:
             request.session['email'] = email
             return redirect('home_client')
         else:
-            return HttpResponse('Please enter valid Username or Password.')
+            return HttpResponse("Invalid Credentials")
 
-    return render(request, 'client_login.html')
+    context = {
+
+    }
+
+    # Render the HTML template client_login.html with the data in the context variable
+    return render(request, 'client_login.html', context=context)
 
 def clientSignup(request):
     """View function of signup page for customers."""
@@ -38,7 +42,6 @@ def clientSignup(request):
         email = request.POST['email']
         password1 = request.POST['password']
         password2 = request.POST['re-password']
-
 
         if password1==password2 :
             client = Customer.objects.create(c_fname = name,
@@ -87,21 +90,24 @@ def expertDisplayProfile(request):
 
 def expertLogin(request):
     """View function of login page for experts."""
-    if request.method == "POST":
+    if request.method == 'POST':
         email = request.POST['email']
         password1 = request.POST['password']
-        
-        check_expert = Worker.objects.filter(W_email  = email, W_password = password1)
 
-        if check_expert is not None:
+        expert = Worker.objects.filter(W_email = email, W_password = password1).count()
+
+        if expert == 1:
             request.session['email'] = email
             return redirect('home_expert')
         else:
-            return HttpResponse('<h3>Please enter valid Username or Password.</h3>')
-    
-    else:
-        return render(request, 'expert_login.html')
-    
+            return HttpResponse("Invalid Credentials")
+    context = {
+
+    }
+
+    # Render the HTML template worker_login.html with the data in the context variable
+    return render(request, 'expert_login.html', context=context)
+
 def expertSignup(request):
     """View function for signup page of service experts"""
     if request.method == "POST":
@@ -130,7 +136,6 @@ def expertSignup(request):
             return redirect('expert_login')
         else:
             return redirect('expert_signup')
-
 
     context = {
 
@@ -162,34 +167,27 @@ def expertsDetail(request):
 def homeClient(request):
     """View function for detail view of service experts"""
     if 'email' in request.session:
-        return render (request, 'client_home.html')
-    else:
-        return redirect('client_login')
-    
+        
+        context = {
+
+        }
+
+            # Render the HTML template home.html with the data in the context variable
+        return render(request, 'client_home.html', context=context)
+    return redirect('index')
 
 def homeExpert(request):
     """View function for detail view of service experts"""
     if 'email' in request.session:
-        return render (request, 'expert_home.html')
-    else:
-        return redirect('expert_login')
-    context = {
+        context = {
 
-    }
+        }
 
-    # Render the HTML template home.html with the data in the context variable
-    return render(request, 'expert_home.html', context=context)
+        # Render the HTML template home.html with the data in the context variable
+        return render(request, 'expert_home.html', context=context)
+    return redirect('index')
 
-def clientLogout(request):
-    try:
-        del request.session['email']
-    except:
-        return redirect('client_login')
-    return redirect('client_login')
-
-def expertLogout(request):
-    try:
-        del request.session['email']
-    except:
-        return redirect('expert_login')
-    return redirect('expert_login')
+def logout(request):
+    if 'email' in request.session:
+        request.session.flush()
+    return redirect('index')
