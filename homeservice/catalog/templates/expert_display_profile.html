@@ -64,7 +64,7 @@
                 />
               </svg>
             </span>
-            <p class="aE aF aG dark:aI">{{expert.Rate_P_Hour}}</p>
+            <p class="aE aF aG dark:aI">{{expert.Rate_P_Hour}} RS/Hr</p>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
   </div>
   <div class="wow fadeInUp a1I az aE a2N aG" data-wow-delay=".5s">
     <a
-      href="{% url 'client_login' %}"
+      href="tel:{{expert.w_phno}}"
       class="aD a9 aS a16 a1N[10px] a18 aE aF aI hover:a19 md:a1N[14px] md:aU"
     >
       Call Now

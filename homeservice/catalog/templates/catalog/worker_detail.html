@@ -1,5 +1,8 @@
-
-{% extends "base_generic.html" %}
+{% if request.session.usr_type == "user" %}
+{% include "base_generic_header.html" %}
+{% else %} 
+{% include "base_expert_header.html" %}
+{% endif %}
 {% block title %}
     <title>Workon | Details</title>
     {% endblock %} {% block content %}
@@ -177,3 +180,5 @@
       </div>
     </section>
 {% endblock %}
+
+{% include "base_generic_footer.html" %}
