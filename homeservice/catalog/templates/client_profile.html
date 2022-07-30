@@ -4,7 +4,7 @@
     {% endblock %}
 {% block content %}
 
-<section class="a1u[130px]">
+<section class="a1u[130px]">{% csrf_token %}
   <div
     class="wow fadeInUp ac a2w a2x a2y a2z a2A lg:a1N[120px]"
     data-wow-delay=".2s"
@@ -18,7 +18,7 @@
     <div class="a1v xl:a1w">
       <div class="a1B ae[580px] az">
         <h1 class="a1E aE a1J a1G a1t dark:aI md:a1F[44px] md:a2E">
-          Hello, Muhammad Basheer
+          Hello, {{client.c_fname}}
         </h1>
         <div class="a2F a5 a6 a9 am">
           <div class="a5 a9 a7">
@@ -30,7 +30,7 @@
                 class="a4"
               />
             </div>
-            <p class="aE aF aG dark:aI">Muhammad Basheer</p>
+            <p class="aE aF aG dark:aI"> {{client.c_fname}}</p>
           </div>
           <div class="a5 a9 a7">
             <span class="a2H aG dark:aI">
@@ -40,7 +40,7 @@
                 />
               </svg>
             </span>
-            <p class="aE aF aG dark:aI">muhammadbasheer@gmail.com</p>
+            <p class="aE aF aG dark:aI">{{client.c_uid}}</p>
           </div>
         </div>
       </div>
