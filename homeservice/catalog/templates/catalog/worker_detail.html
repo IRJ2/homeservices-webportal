@@ -1,7 +1,7 @@
 {% if request.session.usr_type == "user" %}
-{% include "base_generic.html" %}
+{% include "base_generic_header.html" %}
 {% else %} 
-{% include "base_expert.html" %}
+{% include "base_expert_header.html" %}
 {% endif %}
 {% block title %}
     <title>Workon | Details</title>
