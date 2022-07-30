@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-{% extends "base_generic.html" %} {% block content %}
-=======
+
 {% extends "base_generic.html" %}
 {% block title %}
     <title>Workon | Details</title>
     {% endblock %} {% block content %}
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
 
     <section class="a1u[130px]">
       <div
@@ -21,11 +18,7 @@
         <div class="a1v xl:a1w">
           <div class="a1B ae[580px] az">
             <h1 class="a1E aE a1J a1G a1t dark:aI md:a1F[44px] md:a2E">
-<<<<<<< HEAD
-              Bright Plumbing services
-=======
-              Bright Plumbing Services
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
+              {{ object.W_company }}
             </h1>
             <div class="a2F a5 a6 a9 am">
               <div class="a5 a9 a7">
@@ -33,7 +26,7 @@
                   {% load static %}
                   <img src="{% static 'images/worker-demo.jpg' %}" alt="author" class="a4" />
                 </div>
-                <p class="aE aF aG dark:aI">Muhammad Basheer</p>
+                <p class="aE aF aG dark:aI">{{ object.W_fname }}</p>
               </div>
               <div class="a5 a9 a7">
                 <span class="a2H aG dark:aI">
@@ -43,7 +36,7 @@
                     />
                   </svg>
                 </span>
-                <p class="aE aF aG dark:aI">Plumbing</p>
+                <p class="aE aF aG dark:aI">{{ object.W_category }}</p>
               </div>
               <div class="a5 a9 a7">
                 <span class="a2H aG dark:aI">
@@ -53,40 +46,9 @@
                     />
                   </svg>
                 </span>
-                <p class="aE aF aG dark:aI">100 Rs/hr</p>
+                <p class="aE aF aG dark:aI">{{ object.Rate_P_Hour }}Rs/hr</p>
               </div>
             </div>
-<<<<<<< HEAD
-            
-          </div>
-          <br>
-          <br>
-          <div class="wow fadeInUp a5 a6 a9 am lg:as a1B ae[580px] az" data-wow-delay=".5s">
-            <a
-              href="{% url 'client_login' %}"
-              class="aD a9 aS a16 a1N[10px] a18 aE aF aI hover:a19 md:a1N[14px] md:aU"
-            >
-              Call Now
-              <span class="aK">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.172 7L6.808 1.636L8.222 0.222L16 8L8.222 15.778L6.808 14.364L12.172 9H0V7H12.172Z"
-                    fill="white"
-                  />
-                </svg>
-              </span>
-            </a>
-            
-          </div>
-        </div>
-      </div>
-=======
           </div>
         </div>
       </div>
@@ -113,16 +75,11 @@
         </a>
         
       </div>
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
       <div class="a1v a2I xl:a1w">
         <div class="a1x a1y dark:a1z[#2E333D] lg:a1A[130px]">
           <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
             <p class="a1X aF aG">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum quis ligula in libero semper ornare. Donec in dictum
-              justo, ac sollicitudin ex. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. In sit amet dui sapien. Suspendisse
-              fermentum nibh a ligula tristique, id vulputate mi efficitur.
+              {{ object.W_desc }}
             </p>
             
           </div>
@@ -144,17 +101,13 @@
                 </svg>
               </span>
               <p class="a1I az aE a2N aG">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum quis ligula in libero semper ornare. Donec in dictum
-                justo, ac sollicitudin ex.
+                {{ object.W_company_motto }}
               </p>
-              <p class="az aE aF aG">“Muhammad Basheer”</p>
+              <p class="az aE aF aG">“{{ object.W_fname }}”</p>
             </div>
           </div>
-<<<<<<< HEAD
-=======
+
           
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
           <div class="wow fadeInUp a1B ae[920px]" data-wow-delay=".2s">
             <h3 class="a2O aE a1J a1K a1t dark:aI md:a1F[40px]">
               Leave a review
@@ -202,10 +155,6 @@
             <h3 class="a2O aE a1J a1K a1t dark:aI md:a1F[40px]">
               Top reviews
             </h3>
-<<<<<<< HEAD
-            {% comment %} a2F a5 a6 a9 am {% endcomment %}
-=======
->>>>>>> aa93c285801f202800f4d9ad40da8974bb3e3c4f
             <div class="a4 a1v">
               <div class="a5 a9 a7">
                 <div class="a2G a2o a2p a1j">

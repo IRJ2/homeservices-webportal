@@ -1,7 +1,11 @@
+
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from catalog.models import *
+from django.contrib import messages
+from django.http import Http404
+
 
 # Create your views here.
 def index(request):
@@ -35,6 +39,7 @@ def clientLogin(request):
     # Render the HTML template client_login.html with the data in the context variable
     return render(request, 'client_login.html', context=context)
 
+
 def clientSignup(request):
     """View function of signup page for customers."""
     if request.method == "POST":
@@ -60,6 +65,7 @@ def clientSignup(request):
 
 def clientProfile(request):
     """View function of signup page for customers."""
+
     if 'email' in request.session:
         current_client = request.session['email']
         client = Customer.objects.get(c_uid = current_client)
@@ -68,6 +74,16 @@ def clientProfile(request):
         return render(request, 'client_profile.html',context=context)
     else:
         return redirect('index')
+
+
+
+    context = {
+
+    }
+
+
+    # Render the HTML template client_profile.html with the data in the context variable
+    return render(request, 'client_profile.html', context=context)
 
 def expertProfile(request):
     """View function of expert's profile page for experts."""
@@ -82,13 +98,14 @@ def expertProfile(request):
     
 def expertDisplayProfile(request):
     """View function of expert's profile page for experts."""
-
-    context = {
-
-    }
-
-    # Render the HTML template expert_Display_profile.html with the data in the context variable
-    return render(request, 'expert_display_profile.html', context=context)
+    if 'email' in request.session:
+        current_expert = request.session['email']
+        expert = Worker.objects.get(W_email = current_expert)
+        context = {'expert' : expert}
+        # Render the HTML template expert_Display_profile.html with the data in the context variable
+        return render(request, 'expert_display_profile.html', context=context)
+    else:
+        return redirect('index')
 
 def expertLogin(request):
     """View function of login page for experts."""
@@ -146,25 +163,53 @@ def expertSignup(request):
     # Render the HTML template expert_signup.html with the data in the context variable
     return render(request, 'expert_signup.html', context=context)
 
-def expertsList(request):
-    """View function of list view of service experts"""
+class PlumbingListView(generic.ListView):
+    """Class for the list view of experts in Plumbing Service"""
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Plumbing Service')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-    context = {
+class ACServicingListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='AC Servicing')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-    }
+class CarpentryListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Carpentry')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-    # Render the HTML template experts_list.html with the data in the context variable
-    return render(request, 'experts_list.html', context=context)
+class ElectricWorksListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Electric Works')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-def expertsDetail(request):
-    """View function for detail view of service experts"""
+class HomeCleaningListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Home Cleaning')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-    context = {
+class LaptopRepairListView(generic.ListView):
+    model = Worker
+    context_object_name = 'worker_list'   # worker_list is a list of template variable
+    queryset = Worker.objects.filter(W_category__icontains='Laptop Repair')[0:] # Get all experts containing in Plumbing Service category
+    template_name = 'catalog/experts_list.html'  # Specify template location
 
-    }
-
-    # Render the HTML template experts_detail.html with the data in the context variable
-    return render(request, 'experts_detail.html', context=context)
+class ExpertDetailView(generic.DetailView):
+    """Class for the detail view of experts"""
+    model = Worker
+    def expert_detail_view(request, primary_key):
+        try:
+            # expert = Worker.objects.get(pk=primary_key)
+            expert = Worker.objects.filter(W_email__icontains=primary_key)[:1]
+        except Worker.DoesNotExist:
+            raise Http404('Expert does not exist')
+        return render(request, 'catalog/worker_detail.html', context={'expert': expert})
 
 def homeClient(request):
     """View function for detail view of service experts"""
