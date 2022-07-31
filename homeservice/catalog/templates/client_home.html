@@ -1,0 +1,110 @@
+{% extends "base_generic.html" %} {% load static %}
+{% block title %}
+    <title>Workon | Home</title>
+    {% endblock %}
+     {% block content %}
+<section id="blog" class="a1u[240px]">
+  <div class="a1v xl:a1w">
+    <div class="a4 a1x a1y dark:a1z[#2E333D]">
+      <div class="a1R a5 a6">
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'plumbing_list' %}" class="ai">
+                <img
+                  src="{% static './images/grid-demo.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                Plumbing Service
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'ac_list' %}" class="ai">
+                <img
+                  src="{% static './images/ac-img.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                AC Servicing
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'carpentry_list'%}" class="ai">
+                <img
+                  src="{% static './images/carpentry-img.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                Carpentry
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'electricworks_list'%}" class="ai">
+                <img
+                  src="{% static './images/electric-img.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                Electric Works
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'homecleaning_list'%}" class="ai">
+                <img
+                  src="{% static './images/cleaning-img.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                Home Cleaning
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="a4 a1v md:a1S/2 lg:a1S/3">
+          <div class="wow fadeInUp a1M" data-wow-delay=".2s">
+            <div class="ac a1E a2T aS">
+              <a href="{% url 'laptoprepair_list' %}" class="ai">
+                <img
+                  src="{% static './images/laptop-img.jpg'%}"
+                  alt="blog-image"
+                  class="a4"
+                />
+              </a>
+              <span class="a1 a2U a2V aS a16 a1N[6px] a1v aE a1O a1K aI">
+                Laptop Repair
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock%}

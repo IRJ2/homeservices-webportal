@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block title %}<title>Workon</title>{% endblock %}
-    {% load static %}
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+    {% block title %}
+    <title>Workon</title>
+    {% endblock %} {% load static %}
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/favicon.png' %}"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
@@ -15,7 +20,9 @@
     <header class="header a1 a2 a3 a4">
       <div class="a5 a4 a6 a7 lg:a8 lg:a9 lg:a7 xl:aa 2xl:ab">
         <div class="ac ad[99] ae[250px] lg:a4 xl:ae[350px]">
-          <a href="index.html" class="af">
+          {% block homeurl %}
+          <a href="{% url 'home_client'%}" class="af">
+            {% endblock %}
             <img
               src="{% static 'images/logo-dark.png'%}"
               alt="logo"
@@ -37,7 +44,7 @@
                 {% block menu_items %}
                 <li>
                   <a
-                    href="{% url 'index' %}"
+                    href="{% url 'home_client' %}"
                     class="menu-scroll active aD a9 am az aE aF aG hover:aH dark:hover:aI"
                   >
                     Home
@@ -45,23 +52,28 @@
                 </li>
                 <li>
                   <a
-                    href="#features"
+                    href="{% url 'client_profile'%}"
                     class="menu-scroll aD a9 am az aE aF aG hover:aH dark:hover:aI"
                   >
-                    About Us
+                    My Profile
                   </a>
                 </li>
                 {% endblock %}
               </ul>
             </nav>
           </div>
-
+          {% block rightMenuItem %}
           <div
             class="a1 a10 a3 a5 a4 a9 a11 a12 a13 ao lg:aq lg:a14 lg:aw lg:au"
           >
-            {% block rightMenuItem %}
-            {% endblock %}
+            <a
+              href="{% url 'logout' %}"
+              class="a4 a15 aS a_[#222C40] a17 a18 az aE aI hover:a19 lg:a14"
+            >
+              Log Out
+            </a>
           </div>
+          {%endblock%}
         </div>
         <div class="a1 a1a/2 a1b ak a5 a1c/2 a9 lg:aq lg:a1d">
           <label
@@ -123,36 +135,35 @@
       </div>
     </header>
 
-    {% block content%}
-    {% endblock %}
+    {% block content%} {% endblock %}
 
     <footer class="wow fadeInUp a1P sm:a1Q lg:a1u[130px]" data-wow-delay=".2s">
-        <div class="dark:a1z[#2E333D] md:a2d"> 
-          <div class="a1R a5 a6 a2e md:a2f">
-            <div class="a4 a1v md:a1S/2 lg:a1W/3">
-              <div
-                class="a1I a5 a9 am a12 a1x aV dark:a1z[#2E333D] md:a2g md:as md:a2h md:a2i"
-              >
-                <a href="javascript:void(0)" class="aE aF aG hover:aH">
-                  English
-                </a>
-                <a href="javascript:void(0)" class="aE aF aG hover:aH">
-                  Privacy Policy
-                </a>
-                <a href="javascript:void(0)" class="aE aF aG hover:aH">
-                  Support
-                </a>
-              </div>
+      <div class="dark:a1z[#2E333D] md:a2d">
+        <div class="a1R a5 a6 a2e md:a2f">
+          <div class="a4 a1v md:a1S/2 lg:a1W/3">
+            <div
+              class="a1I a5 a9 am a12 a1x aV dark:a1z[#2E333D] md:a2g md:as md:a2h md:a2i"
+            >
+              <a href="javascript:void(0)" class="aE aF aG hover:aH">
+                English
+              </a>
+              <a href="javascript:void(0)" class="aE aF aG hover:aH">
+                Privacy Policy
+              </a>
+              <a href="javascript:void(0)" class="aE aF aG hover:aH">
+                Support
+              </a>
             </div>
-            <div class="a4 a1v md:a1S/2 lg:a1S/3">
-              <div>
-                <p class="az aE aF aG lg:a2j">
-                  © Created by Jayageetha, Irene, Hema, Febi
-                </p>
-              </div>
+          </div>
+          <div class="a4 a1v md:a1S/2 lg:a1S/3">
+            <div>
+              <p class="az aE aF aG lg:a2j">
+                © Created by Jayageetha, Irene, Hema, Febi
+              </p>
             </div>
           </div>
         </div>
+      </div>
     </footer>
 
     <a
@@ -164,7 +175,7 @@
 
     <script
       data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+      src="{% static 'js/tiny-email-decode.min.js' %}"
     ></script>
     <script src="{% static 'js/tiny-slider.js' %}"></script>
     <script src="{% static 'js/typewriter.js' %}"></script>
@@ -173,7 +184,7 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script>
       // section menu active
-      function onScroll(event) {
+       {% comment %} function onScroll(event) {
         const sections = document.querySelectorAll(".menu-scroll");
         const scrollPos =
           window.pageYOffset ||
@@ -195,14 +206,14 @@
             currLink.classList.remove("active");
           }
         }
-      }
+      }  {% endcomment %}
 
       window.document.addEventListener("scroll", onScroll);
       // ==== About Tabs
       const tabButtons = document.querySelectorAll(".tabButtons button");
       const tabPanels = document.querySelectorAll(".tabPanel");
 
-      function showPanel(panelIndex) {
+      /*function showPanel(panelIndex) {
         tabButtons.forEach(function (node) {
           node.classList.remove("aH", "a28", "dark:a28");
         });
@@ -217,10 +228,10 @@
         });
         tabPanels[panelIndex].style.display = "flex";
       }
-      showPanel(0);
+      showPanel(0);*/
 
       //========= testimonial
-      tns({
+      /*tns({
         container: ".testimonial-active",
         items: 1,
         slideBy: "page",
@@ -252,10 +263,10 @@
             />
           </svg>`,
         ],
-      });
+      });*/
 
       //============== isotope masonry js
-
+/*
       const elem = document.querySelector(".portfolio-grid");
       const iso = new Isotope(elem, {
         // options
@@ -276,10 +287,10 @@
             filter: filterValue,
           });
         })
-      );
+      );*/
 
       //======= portfolio-btn active
-      var elements = document.querySelectorAll(".portfolio-btn-wrapper button");
+      /*var elements = document.querySelectorAll(".portfolio-btn-wrapper button");
       for (var i = 0; i < elements.length; i++) {
         elements[i].onclick = function () {
           // remove class from sibling
@@ -296,7 +307,7 @@
 
           this.classList.add("active");
         };
-      }
+      }*/
     </script>
   </body>
 </html>

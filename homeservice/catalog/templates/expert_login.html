@@ -1,0 +1,72 @@
+{% extends "base_generic.html" %}
+{% block title %}
+    <title>Workon | Login</title>
+    {% endblock %} {% block homeurl %}
+<a href="{% url 'index'%}" class="af">
+  {% endblock %} {% block menu_items %}{% endblock %} {% block rightMenuItem %}
+  <div class="a1 a10 a3 a5 a4 a9 a11 a12 a13 ao lg:aq lg:a14 lg:aw lg:au">
+    <a
+      href="{% url 'expert_signup' %}"
+      class="a4 a15 aS a_[#222C40] a17 a18 az aE aI hover:a19 lg:a14"
+    >
+      Sign Up
+    </a>
+  </div>
+  {%endblock%} {% block content %}
+  <section class="wow fadeInUp a1u[120px] lg:a1u[240px]" data-wow-delay=".2s">
+    <div class="a1v xl:a1w">
+      <div class="a1x a1y dark:a1z[#2E333D] lg:a1A[130px]">
+        <div class="a1R a5 a6">
+          <div class="a4 a1v">
+            <div
+              class="a1B ae[920px] aS aT an a46 a18 dark:aZ dark:a_[#1D232D] sm:a3X[70px]"
+            >
+              <h3
+                class="a3s aE a1Y a1K a1k dark:aI sm:a1J lg:a1Y xl:a1F[40px] xl:a2E"
+              >
+                Sign in to your Account
+              </h3>
+              <p class="a2J aF a1K aG">Join us and see how far you can go</p>
+              <form method="POST">{% csrf_token %}
+                <div class="a1R a5 a6">
+                  <div class="a4 a1v sm:a1S/2">
+                    <div class="a1M">
+                      <label for="email" class="a3s ai aE aF a1t dark:aI">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="jhonandrio@domain.com"
+                        class="a4 a1x at a2e aF a1K a1t a2P a27 focus:a28 dark:a1z[#2C3443] dark:aI dark:focus:a2v"
+                      />
+                    </div>
+                  </div>
+                  <div class="a4 a1v sm:a1S/2">
+                    <div class="a1M">
+                      <label for="password" class="a3s ai aE aF a1t dark:aI">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="**********"
+                        class="a4 a1x at a2e aF a1K a1t a2P a27 focus:a28 dark:a1z[#2C3443] dark:aI dark:focus:a2v"
+                      />
+                    </div>
+                  </div>
+                  <div class="a4 a1v">
+                    <button class="a5 a9 am aS a16 a1N[14px] a3W a1O a1G aI">
+                      Sign In Now
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+</a>
