@@ -115,25 +115,14 @@
             <h3 class="a2O aE a1J a1K a1t dark:aI md:a1F[40px]">
               Leave a review
             </h3>
-            <form>
+            <form method="post">{% csrf_token %}
               <div class="a1R a5 a6">
-                <div class="a4 a1v sm:a1S/3">
-                  <div class="a2J">
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      placeholder=" Title"
-                      class="a4 a1x at a2e aF a1t a2P a27 focus:a28 dark:a1z[#2C3443] dark:aI dark:focus:a2v"
-                    />
-                  </div>
-                </div>
                 <div class="a4 a1v">
                   <div class="a1M">
                     <textarea
                       rows="4"
-                      name="message"
-                      id="message"
+                      name="review"
+                      id="review"
                       placeholder="Type Message"
                       class="a4 a2Q a1x at a2e aF a1K a1t a2P a27 focus:a28 dark:a1z[#2C3443] dark:aI dark:focus:a2v"
                     ></textarea>
