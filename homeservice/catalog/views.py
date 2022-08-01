@@ -48,10 +48,13 @@ def clientSignup(request):
         password2 = request.POST['re-password']
 
         if password1==password2 :
-            client = Customer.objects.create(c_fname = name,
-                                            c_uid = email,
-                                            c_password = password1)
-            client.save()
+            if Customer.objects.filter(c_uid = email).count()<1:
+                client = Customer.objects.create(c_fname = name,
+                                                c_uid = email,
+                                                c_password = password1)
+                client.save()
+            else:
+                return HttpResponse("Email already exists.")
             return redirect('client_login')
         else:
             return redirect('client_signup')
@@ -133,16 +136,19 @@ def expertSignup(request):
         phone = request.POST['phone']
 
         if password1==password2 :
-            expert = Worker.objects.create(W_fname = name,
-                                            W_email = email,
-                                            W_password = password1,
-                                            W_company = companyname,
-                                            W_company_motto = motto,
-                                            W_desc = desc,
-                                            W_category = categories,
-                                            w_phno = phone,
-                                            Rate_P_Hour = rate)
-            expert.save()
+            if Worker.objects.filter(W_email = email).count()<1:
+                expert = Worker.objects.create(W_fname = name,
+                                                W_email = email,
+                                                W_password = password1,
+                                                W_company = companyname,
+                                                W_company_motto = motto,
+                                                W_desc = desc,
+                                                W_category = categories,
+                                                w_phno = phone,
+                                                Rate_P_Hour = rate)
+                expert.save()
+            else:
+                return HttpResponse("Email already exists.")
             return redirect('expert_login')
         else:
             return redirect('expert_signup')
